@@ -58,8 +58,7 @@ This project is an iOS application I built to display lists of movies using **Th
 ## Testing
 - I wrote unit tests to cover critical components, including:
   - **Domain Logic**: Use cases and data transformations.
-  - **Data Retrieval**: API integration and caching logic.
-  - **UI Interactions**: Ensuring the UI behaves as expected.
+  - **Data Retrieval**: API integration
 
 ---
 
