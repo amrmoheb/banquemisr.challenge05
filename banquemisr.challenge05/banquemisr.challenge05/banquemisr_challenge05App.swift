@@ -11,7 +11,7 @@ import SwiftUI
 struct banquemisr_challenge05App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MoviesListView()
         }
     }
 }
