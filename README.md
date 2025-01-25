@@ -1,94 +1,71 @@
 # Evaluation Task (iOS)
 
-This repository contains an iOS application built to showcase movies from **The Movie Database (TMDb) API**, displaying lists of now playing, popular, and upcoming movies. The app also provides detailed information for each movie upon selection.
+This project is an iOS application I built to display lists of movies using **The Movie Database (TMDb) API**. It includes three categories of movies: **Now Playing**, **Popular**, and **Upcoming**, and allows users to view detailed information about each movie. Here's a breakdown of how I approached the task:
 
-## Features
+---
+
+## What I Did
 
 ### 1. List Screen
-- **Tabs**: Three tabs are implemented using a native `UITabBar` to display:
-  - **Now Playing** movies
-  - **Popular** movies
-  - **Upcoming** movies
-- **Movie List**: Fetch and display movies in a list view under each tab.
-- **Basic Details**: Each list item displays the movie's title, release date, and poster image.
+- I implemented **three tabs** using a native `UITabBarController`. Each tab represents a movie category:
+  - **Now Playing**
+  - **Popular**
+  - **Upcoming**
+- For each tab, I used a `UITableView` to display a list of movies fetched from the TMDb API.
+- Each movie item in the list displays:
+  - **Title**
+  - **Release Date**
+  - **Poster Image**
 
 ### 2. Detail Screen
-- Displays comprehensive details about the selected movie, including:
-  - Overview
-  - Genres
-  - Runtime
-- Includes a back button for navigation to the list screen.
+- I created a detail screen that shows additional information about a selected movie. This screen includes:
+  - **Overview**
+  - **Genres**
+  - **Runtime**
+- I added a back button to navigate from the detail screen back to the list screen.
+- The movie details are fetched from the TMDb API using the movie's unique ID.
 
 ---
 
-## Architectural Design
+## Architecture and Design
 
-### 1. **MVVM Architecture**
-The app follows the **Model-View-ViewModel** (MVVM) design pattern:
-- **Model**: Represents domain entities (e.g., Movie) and handles data mapping.
-- **ViewModel**: Manages data for the views and business logic using use cases.
-- **View**: Renders the UI and listens to changes from the ViewModel.
+### MVVM Architecture
+- I followed the **Model-View-ViewModel (MVVM)** pattern:
+  - **Model**: Represents movie entities and handles data mapping.
+  - **ViewModel**: Manages fetching data from use cases and prepares it for the view.
+  - **View**: Displays the data and reacts to updates from the ViewModel.
 
-### 2. **Domain-Driven Design (DDD)**
-The codebase is organized into three distinct layers:
-- **Domain Layer**:
-  - Contains core business logic and domain models.
-  - Includes use cases for fetching movie data.
-- **Data Layer**:
-  - Handles API integration and data management.
-  - Implements data sources for fetching movies from TMDb.
-- **Presentation Layer**:
-  - Manages UI components and interaction logic using ViewModels.
-  - Provides a clean separation of concerns for easier testing and maintainability.
+### Domain-Driven Design
+- I organized the codebase into:
+  - **Domain Layer**: Contains core logic, such as models and use cases.
+  - **Data Layer**: Manages API integration, network requests, and data parsing.
+  - **Presentation Layer**: Handles the UI using ViewControllers and ViewModels.
 
----
+### Error Handling
+- I implemented error handling to manage:
+  - Network issues
+  - API failures
+  - Unexpected exceptions
+- Informative error messages are displayed to users when something goes wrong.
 
-## Requirements
-
-1. **APIs**:
-   - The Movie Database (TMDb) API: [API Documentation](https://developer.themoviedb.org/reference)
-
-2. **Dependencies**:
-   - No third-party frameworks (e.g., CocoaPods or Swift Package Manager) are used.
-
-3. **Error Handling**:
-   - Graceful handling of network errors, API failures, and unexpected exceptions.
-   - Informative error messages are displayed to users.
-
-4. **Testing**:
-   - Comprehensive unit tests covering:
-     - Domain logic
-     - Data retrieval
-     - UI interactions
-
-5. **Caching**:
-   - Implemented caching mechanisms to store previously fetched data locally.
-   - Displays cached data in offline mode or during network errors.
+### Caching
+- I added a caching mechanism to store previously fetched movie data locally. This helps:
+  - Show cached data during network errors.
+  - Provide a better experience in offline mode.
 
 ---
 
-## Deliverables
-
-- A fully functional and well-structured iOS project.
-- Source code hosted in this repository with:
-  - Clear commit history
-  - Meaningful commit messages
+## Testing
+- I wrote unit tests to cover critical components, including:
+  - **Domain Logic**: Use cases and data transformations.
+  - **Data Retrieval**: API integration and caching logic.
+  - **UI Interactions**: Ensuring the UI behaves as expected.
 
 ---
 
-## Evaluation Criteria
-
-1. **Adherence to Requirements**:
-   - Meets all specified functionality and guidelines.
-
-2. **Architecture**:
-   - Correct implementation of MVVM and DDD principles.
-
-3. **Code Quality**:
-   - Readability, maintainability, and adherence to Swift coding conventions.
-
-4. **Testing**:
-   - Comprehensive test coverage for critical components.
-   - Effective error handling strategies.
+## Tools and Guidelines Followed
+- **No Third-Party Frameworks**: I avoided using any dependency managers like CocoaPods or Swift Package Manager.
+- **Swift Coding Standards**: I adhered to best practices for clean, readable, and maintainable code.
+- **UI/UX**: I focused on creating a clean and intuitive user interface.
 
 ---
