@@ -41,11 +41,18 @@ struct MovieDetailsView: View {
                 .padding()
             } else {
                 ProgressView()
-                    .onAppear {
-                        viewModel.fetchMovieDetails(movieId: movieId)
-                    }
             }
         }
+        .onAppear {
+            viewModel.fetchMovieDetails(movieId: movieId)
+        }
+        .alert(isPresented: $viewModel.showAlert) {
+                    Alert(
+                        title: Text(viewModel.alertData?.title ?? ""),
+                        message: Text(viewModel.alertData?.message ?? ""),
+                        dismissButton: .default(Text(viewModel.alertData?.buttonTitle ?? "OK"))
+                    )
+                }
         .navigationTitle(movieTitle)
         .navigationBarTitleDisplayMode(.inline)
     }

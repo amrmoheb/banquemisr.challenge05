@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "0D1B2D92-14F4-4917-B10B-19D4853CCDFE",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:banquemisr.challenge05.xcodeproj",
+        "identifier" : "2403BC0B2D410EF400C5E899",
+        "name" : "banquemisr.challenge05Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
